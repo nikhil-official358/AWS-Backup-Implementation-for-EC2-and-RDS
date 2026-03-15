@@ -12,7 +12,7 @@ The project validates the backup configuration by triggering **on-demand backups
 
 # Architecture Diagram
 
-![Architecture Diagram](architecture-diagram.png)
+![Architecture Diagram](doc/aws_backup_architecure.png)
 
 ---
 
@@ -42,7 +42,23 @@ An EC2 instance was launched using **Amazon Linux** and configured with an **Apa
 
 ### Screenshot
 
-![EC2 Instance Running](screenshots/01-EC2-Instance-Running.png)
+![EC2 Instance Running](doc/01-EC2-Instance-Running.png)
+
+---
+
+## Apache Web Server Status
+
+The Apache HTTP server was installed and started on the EC2 instance to host the sample application page.
+
+### Command Used
+
+```
+sudo systemctl status httpd
+```
+
+### Screenshot
+
+![Apache Service Running](doc/03-Apache-Service-Running.png)
 
 ---
 
@@ -52,7 +68,7 @@ A sample webpage was created to simulate application data stored on the EC2 inst
 
 ### Screenshot
 
-![EC2 Webpage](screenshots/02-EC2-Webpage-Data.png)
+![EC2 Webpage](doc/02-EC2-Webpage-Data.png)
 
 ---
 
@@ -67,9 +83,15 @@ An **Amazon RDS MySQL database** was created to store structured application dat
 * Public Access: Enabled
 * Database Name: backupdemo
 
-### Sample Table
+### Screenshot
 
-A sample table called **students** was created.
+![RDS Database Running](doc/04-RDS-Database-Running.png)
+
+---
+
+## Sample Database Table
+
+A sample table called **students** was created to store records.
 
 Example query:
 
@@ -79,13 +101,15 @@ SELECT * FROM students;
 
 ### Screenshot
 
-![RDS Sample Data](screenshots/05-RDS-Sample-Data.png)
+![RDS Sample Data](doc/05-RDS-Sample-Data.png)
 
 ---
 
 # AWS Backup Configuration
 
 AWS Backup was configured to create automated backups for both EC2 and RDS resources.
+
+---
 
 ## Backup Vault
 
@@ -99,7 +123,7 @@ project-backup-vault
 
 ### Screenshot
 
-![Backup Vault](screenshots/06-Backup-Vault.png)
+![Backup Vault](doc/06-Backup-Vault.png)
 
 ---
 
@@ -129,7 +153,7 @@ Retention Period:
 
 ### Screenshot
 
-![Backup Plan](screenshots/07-Backup-Plan.png)
+![Backup Plan](doc/07-Backup-Plan.png)
 
 ---
 
@@ -144,7 +168,17 @@ This allows AWS Backup to automatically create backups for these resources.
 
 ### Screenshot
 
-![Resource Assignment](screenshots/08-Resource-Assignment.png)
+![Resource Assignment](doc/08-Resource-Assignment.png)
+
+---
+
+# Protected Resources
+
+Once the backup plan was applied, the EC2 instance and RDS database appeared under **Protected Resources** in AWS Backup.
+
+### Screenshot
+
+![Protected Resources](doc/09-Protected-Resources.png)
 
 ---
 
@@ -156,7 +190,7 @@ Backup jobs were monitored through the AWS Backup console.
 
 ### Screenshot
 
-![Backup Jobs](screenshots/10-Backup-Jobs-Completed.png)
+![Backup Jobs](doc/10-Backup-Jobs-Completed.png)
 
 ---
 
@@ -168,7 +202,7 @@ These recovery points can be used to restore EC2 instances or RDS databases in c
 
 ### Screenshot
 
-![Recovery Points](screenshots/11-Recovery-Points.png)
+![Recovery Points](doc/11-Recovery-Points.png)
 
 ---
 
@@ -193,5 +227,8 @@ AWS Backup provides a **centralized and automated solution for protecting AWS wo
 This project illustrates how AWS Backup can be effectively used to protect EC2 and RDS resources in a real-world cloud environment.
 
 ---
-* **A ready-to-submit 2-page internship report (PDF format)**
-* **How to push this whole project to GitHub step-by-step**. 🚀
+
+# Author
+
+**Nikhil Khandare**
+
